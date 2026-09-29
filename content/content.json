@@ -1,0 +1,56 @@
+{
+  "location": {
+    "world": "LIGHT // ODIN:",
+    "address": "Mist, Ward 7, Plot 42"
+  },
+  "discord": "https://discord.gg/kmRcxZDXn",
+  "instagram": "@HIKARIS_INSTAGRAM",
+  "nextEvent": {
+    "title": "Grand Opening — Best of the 80s & 90s",
+    "date": "31.10.2026 · feat. DJ XY",
+    "description": "Celebrate our grand opening with the best tracks of the 80s and 90s. Dress code: neon. Vibes: maximum synthwave.",
+    "flyer": "/assets/flyer-next.png"
+  },
+  "events": [
+    {
+      "name": "Event Name 1",
+      "date": "Date · Time",
+      "caption": "Theme · DJ · Dress code",
+      "flyer": ""
+    },
+    {
+      "name": "Event Name 2",
+      "date": "Date · Time",
+      "caption": "Theme · DJ · Dress code",
+      "flyer": ""
+    },
+    {
+      "name": "Event Name 3",
+      "date": "Date · Time",
+      "caption": "Theme · DJ · Dress code",
+      "flyer": ""
+    }
+  ],
+  "menuImage": "/assets/flyer-menu.png",
+  "menuNote": "Signature cocktails, served until 23PM ST. Ask our bar staff for the off-menu special.",
+  "staff": [
+    {
+      "name": "Name",
+      "role": "Role",
+      "about": "About me — a few lines about this person, written by themselves.",
+      "portrait": ""
+    },
+    {
+      "name": "Name",
+      "role": "Role",
+      "about": "About me — a few lines about this person, written by themselves.",
+      "portrait": ""
+    },
+    {
+      "name": "Name",
+      "role": "Role",
+      "about": "About me — a few lines about this person, written by themselves.",
+      "portrait": ""
+    }
+  ]
+}
