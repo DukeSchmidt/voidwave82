@@ -6,27 +6,27 @@
   "discord": "https://discord.gg/kmRcxZDXn",
   "instagram": "@HIKARIS_INSTAGRAM",
   "nextEvent": {
-    "title": "Grand Opening — Best of the 80s & 90s",
+    "title": "Grand Opening - Best of the 80s & 90s",
     "date": "31.10.2026 · feat. DJ XY",
-    "description": "Celebrate our grand opening with the best tracks of the 80s and 90s. Dress code: neon. Vibes: maximum synthwave.",
+    "description": "Celebrate our grand opening with the best tracks of the 80s and 90s. \nDress code: 80s, 90s, Neon. \nVibes: Only good ones!",
     "flyer": "/assets/flyer-next.png"
   },
   "events": [
     {
-      "name": "Event Name 1",
-      "date": "Date · Time",
+      "name": "November Rain - Our Hard Rock Night against the cold!",
+      "date": "Date: 14.11.2026 · Time 8 p.m. GMT",
       "caption": "Theme · DJ · Dress code",
       "flyer": ""
     },
     {
-      "name": "Event Name 2",
-      "date": "Date · Time",
+      "name": "Santas Eve - All we wan't for Christmas is you! ",
+      "date": "Date: 05.12.2026 · Time 8 p.m. GMT",
       "caption": "Theme · DJ · Dress code",
       "flyer": ""
     },
     {
-      "name": "Event Name 3",
-      "date": "Date · Time",
+      "name": "Voidwave's Twixmas Party - Get ready for a new year of good vibes and music!",
+      "date": "Date: 26.12.2026  · Time 8 p.m. GMT",
       "caption": "Theme · DJ · Dress code",
       "flyer": ""
     }
