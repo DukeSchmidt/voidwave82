@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOIDWAVE 82 — Synthwave Venue · FFXIV</title>
+<meta name="description" content="VOIDWAVE 82 — a synthwave & cyberpunk venue in Final Fantasy XIV. Best of the 80s and 90s. Light · Odin: Mist, Ward 7, Plot 42.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#0b0618;
+  --bg1:#160a2e;
+  --pink:#ff2bd6;
+  --pink-soft:#ff7ae9;
+  --cyan:#00f0ff;
+  --cyan-soft:#8ffcff;
+  --gold:#ffd319;
+  --text:#e8e2ff;
+  --muted:#a89bc9;
+  --card:rgba(22,10,46,.72);
+  --line:rgba(255,43,214,.45);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Rajdhani',sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(255,43,214,.22), transparent 60%),
+    radial-gradient(900px 500px at 85% 110%, rgba(0,240,255,.14), transparent 60%),
+    linear-gradient(180deg,var(--bg1),var(--bg0) 60%,#060310);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+/* ---------- synthwave sun + grid ---------- */
+.sun{
+  position:fixed;left:50%;top:-12vh;transform:translateX(-50%);
+  width:70vmin;height:70vmin;border-radius:50%;pointer-events:none;z-index:0;
+  background:
+    repeating-linear-gradient(180deg, transparent 0 14px, rgba(11,6,24,.9) 14px 18px),
+    linear-gradient(180deg,#ffd319 0%,#ff8c00 32%,#ff2bd6 66%,#7b2bff 100%);
+  filter:blur(.4px) saturate(1.15);
+  opacity:.32;
+  -webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 96%);
+          mask-image:linear-gradient(180deg,#000 55%,transparent 96%);
+}
+.grid{
+  position:fixed;left:-25vw;right:-25vw;bottom:-8vh;height:52vh;z-index:0;pointer-events:none;
+  background:
+    repeating-linear-gradient(90deg,rgba(0,240,255,.28) 0 1px,transparent 1px 60px),
+    repeating-linear-gradient(0deg,rgba(255,43,214,.30) 0 1px,transparent 1px 44px);
+  transform:perspective(420px) rotateX(62deg);
+  transform-origin:top center;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 45%);
+          mask-image:linear-gradient(180deg,transparent,#000 45%);
+  animation:gridmove 6s linear infinite;
+}
+@keyframes gridmove{from{background-position:0 0,0 0}to{background-position:0 0,0 44px}}
+/* scanlines */
+.scan{
+  position:fixed;inset:0;z-index:60;pointer-events:none;mix-blend-mode:overlay;opacity:.5;
+  background:repeating-linear-gradient(180deg,rgba(255,255,255,.045) 0 1px,transparent 1px 3px);
+}
+.vignette{position:fixed;inset:0;z-index:59;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(0,0,0,.55))}
+
+/* ---------- layout ---------- */
+.wrap{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:0 20px 120px}
+header.site{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:26px 0 10px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--text)}
+.brand img{width:74px;height:74px;border-radius:50%;border:2px solid var(--cyan);
+  box-shadow:0 0 18px rgba(0,240,255,.55),0 0 40px rgba(255,43,214,.35)}
+.brand h1{font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(1.35rem,4vw,2rem);
+  letter-spacing:.14em;
+  background:linear-gradient(180deg,var(--cyan-soft),var(--pink) 70%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 10px rgba(255,43,214,.55));
+}
+.brand small{display:block;font-family:'Rajdhani',sans-serif;font-weight:600;color:var(--muted);
+  letter-spacing:.42em;font-size:.72rem;margin-top:2px}
+
+/* nav */
+nav.tabs{display:flex;gap:10px;flex-wrap:wrap}
+.tab{
+  font-family:'Orbitron',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.22em;
+  color:var(--cyan-soft);background:rgba(0,240,255,.05);
+  border:1px solid rgba(0,240,255,.5);border-radius:10px;padding:11px 20px;cursor:pointer;
+  text-transform:uppercase;transition:.18s;
+}
+.tab:hover{background:rgba(0,240,255,.14);box-shadow:0 0 16px rgba(0,240,255,.35)}
+.tab.active{color:#12041f;background:linear-gradient(90deg,var(--cyan),var(--pink));
+  border-color:transparent;box-shadow:0 0 22px rgba(255,43,214,.6)}
+
+/* sections */
+section.panel{display:none;animation:fadein .35s ease}
+section.panel.active{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.kicker{font-family:'Orbitron',sans-serif;color:var(--pink-soft);letter-spacing:.5em;
+  font-size:.72rem;text-transform:uppercase;text-shadow:0 0 12px rgba(255,43,214,.7)}
+h2.title{font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(1.6rem,5vw,2.6rem);
+  letter-spacing:.1em;margin:6px 0 26px;color:#fff;
+  text-shadow:0 0 14px rgba(0,240,255,.6),0 0 34px rgba(255,43,214,.5)}
+
+/* cards */
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:24px;backdrop-filter:blur(8px);
+  box-shadow:0 0 0 1px rgba(0,240,255,.12),0 10px 40px rgba(0,0,0,.45),inset 0 0 30px rgba(255,43,214,.05);
+}
+.grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+@media(max-width:840px){.grid2{grid-template-columns:1fr}}
+.stack{display:grid;gap:22px}
+
+.location{font-size:1.25rem;font-weight:600;line-height:1.6}
+.location .smallcaps{color:var(--gold);letter-spacing:.06em}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;margin-top:16px;
+  font-family:'Orbitron',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.18em;
+  text-transform:uppercase;text-decoration:none;cursor:pointer;
+  color:#0c0322;background:linear-gradient(90deg,var(--cyan),var(--pink));
+  border:none;border-radius:10px;padding:13px 22px;
+  box-shadow:0 0 20px rgba(0,240,255,.45),0 0 34px rgba(255,43,214,.35);transition:.18s;
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.btn.ghost{color:var(--cyan-soft);background:rgba(0,240,255,.06);
+  border:1px solid rgba(0,240,255,.55);box-shadow:none}
+.btn.ghost:hover{background:rgba(0,240,255,.15);box-shadow:0 0 16px rgba(0,240,255,.3)}
+.btn.pink{color:#fff;background:linear-gradient(90deg,var(--pink),#7b2bff);
+  box-shadow:0 0 20px rgba(255,43,214,.5)}
+.hint{color:var(--muted);font-size:.85rem;margin-top:10px}
+
+/* next event */
+.next{display:grid;grid-template-columns:220px 1fr;gap:22px;align-items:center}
+@media(max-width:640px){.next{grid-template-columns:1fr}}
+.next img{width:100%;border-radius:12px;border:1px solid var(--line);
+  box-shadow:0 0 22px rgba(255,43,214,.4)}
+.next h3{font-family:'Orbitron',sans-serif;font-size:1.35rem;letter-spacing:.08em;color:#fff;
+  text-shadow:0 0 12px rgba(0,240,255,.5)}
+.chip{display:inline-block;font-family:'Orbitron',sans-serif;font-size:.68rem;letter-spacing:.2em;
+  text-transform:uppercase;color:#12041f;background:var(--gold);border-radius:6px;
+  padding:4px 10px;margin-bottom:10px;font-weight:700}
+.meta{color:var(--cyan-soft);font-weight:600;margin:8px 0}
+.desc{color:var(--muted);line-height:1.55}
+
+/* events */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:840px){.cards3{grid-template-columns:1fr}}
+.ev{overflow:hidden;padding:0;display:flex;flex-direction:column}
+.ev .slot{position:relative;aspect-ratio:3/4;background:
+  linear-gradient(135deg,rgba(255,43,214,.18),rgba(0,240,255,.12)),#120826;
+  display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line)}
+.ev .slot .ph{text-align:center;color:var(--muted);font-family:'Orbitron',sans-serif;
+  font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;line-height:2}
+.ev .slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ev .body{padding:16px 18px 20px}
+.ev h4{font-family:'Orbitron',sans-serif;font-size:.95rem;letter-spacing:.1em;color:#fff}
+.ev .date{color:var(--pink-soft);font-weight:600;margin:4px 0 6px}
+.ev p{color:var(--muted);font-size:.95rem;line-height:1.5}
+
+/* staff */
+.staff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:840px){.staff-grid{grid-template-columns:1fr}}
+.staff{padding:0;overflow:hidden;text-align:center}
+.staff .pic{height:220px;background:linear-gradient(180deg,rgba(0,240,255,.10),rgba(255,43,214,.14)),#120826;
+  position:relative;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line)}
+.staff .pic img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.staff .pic .ph{color:var(--muted);font-family:'Orbitron',sans-serif;font-size:.7rem;
+  letter-spacing:.3em;text-transform:uppercase}
+.staff .body{padding:18px}
+.staff h4{font-family:'Orbitron',sans-serif;color:#fff;letter-spacing:.1em;font-size:1rem}
+.staff .role{color:var(--cyan-soft);font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  font-size:.72rem;margin:6px 0 10px}
+.staff .about{color:var(--muted);line-height:1.55;font-size:.95rem}
+
+footer{margin-top:70px;text-align:center;color:var(--muted);font-size:.85rem;letter-spacing:.12em}
+footer a{color:var(--pink-soft);text-decoration:none}
+
+[data-cms-img]{display:none}
+
+/* toast */
+#toast{position:fixed;left:50%;top:24px;transform:translate(-50%,-80px);z-index:90;
+  font-family:'Orbitron',sans-serif;font-size:.75rem;letter-spacing:.2em;color:#0c0322;
+  background:linear-gradient(90deg,var(--cyan),var(--pink));border-radius:10px;padding:12px 22px;
+  box-shadow:0 0 26px rgba(255,43,214,.6);transition:transform .3s}
+#toast.show{transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<div class="sun"></div>
+<div class="grid"></div>
+<div class="scan"></div>
+<div class="vignette"></div>
+
+<div class="wrap">
+  <header class="site">
+    <a class="brand" href="#">
+      <img src="assets/logo.png" alt="VOIDWAVE 82 logo">
+      <div>
+        <h1>VOIDWAVE 82</h1>
+        <small>SYNTHWAVE · CYBERPUNK · FFXIV VENUE</small>
+      </div>
+    </a>
+    <nav class="tabs">
+      <button class="tab active" data-tab="home">Start</button>
+      <button class="tab" data-tab="events">Events</button>
+      <button class="tab" data-tab="menu">Menu</button>
+      <button class="tab" data-tab="staff">Staff</button>
+    </nav>
+  </header>
+
+  <!-- ============ HOME ============ -->
+  <section class="panel active" id="panel-home">
+    <p class="kicker">Grand Opening — Best of the 80s &amp; 90s</p>
+    <h2 class="title">WELCOME TO THE VOID</h2>
+
+    <div class="grid2">
+      <div class="stack">
+        <div class="card">
+          <p class="kicker">Location</p>
+          <p class="location" style="margin-top:10px">
+            <span class="smallcaps" data-cms="location.world">LIGHT // ODIN:</span><br>
+            <span data-cms="location.address">Mist, Ward 7, Plot 42</span>
+          </p>
+          <button class="btn" id="cmdBtn">&#9654; Lifestream Command</button>
+          <p class="hint">Click to copy the in-game teleport command to your clipboard.</p>
+        </div>
+
+        <div class="card">
+          <p class="kicker">Community</p>
+          <h3 style="font-family:'Orbitron';letter-spacing:.08em;margin:8px 0 4px">JOIN OUR DISCORD</h3>
+          <p class="desc">Get event reminders, submit song requests and hang out with the Voidwave family.</p>
+          <a class="btn pink" id="discordBtn" href="https://discord.gg/kmRcxZDXn" target="_blank" rel="noopener">Join our Discord &nearr;</a>
+          <p class="hint">Admin: you can edit the invite text while logged in — the button link updates automatically on Save.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="kicker">Next Event</p>
+        <div class="next" style="margin-top:14px">
+          <img src="assets/flyer-next.png" alt="Next event flyer" data-cms-img="nextEvent.flyer">
+          <div>
+            <span class="chip">Upcoming</span>
+            <h3 data-cms="nextEvent.title">Grand Opening — Best of the 80s &amp; 90s</h3>
+            <p class="meta" data-cms="nextEvent.date">31.10.2026 · feat. DJ XY</p>
+            <p class="desc" data-cms="nextEvent.description">Celebrate our grand opening with the best tracks of the 80s and 90s. Dress code: neon. Vibes: maximum synthwave.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EVENTS ============ -->
+  <section class="panel" id="panel-events">
+    <p class="kicker">Upcoming</p>
+    <h2 class="title">NEXT EVENTS</h2>
+    <div class="cards3">
+      <div class="card ev">
+        <div class="slot"><span class="ph">Flyer<br>Slot 01</span><img data-cms-img="events.0.flyer" alt="Event 1 flyer"></div>
+        <div class="body">
+          <h4 data-cms="events.0.name">Event Title 1</h4>
+          <p class="date" data-cms="events.0.date">Date · Time</p>
+          <p data-cms="events.0.caption">Short event description. Theme, DJs, dress code…</p>
+        </div>
+      </div>
+      <div class="card ev">
+        <div class="slot"><span class="ph">Flyer<br>Slot 02</span><img data-cms-img="events.1.flyer" alt="Event 2 flyer"></div>
+        <div class="body">
+          <h4 data-cms="events.1.name">Event Title 2</h4>
+          <p class="date" data-cms="events.1.date">Date · Time</p>
+          <p data-cms="events.1.caption">Short event description. Theme, DJs, dress code…</p>
+        </div>
+      </div>
+      <div class="card ev">
+        <div class="slot"><span class="ph">Flyer<br>Slot 03</span><img data-cms-img="events.2.flyer" alt="Event 3 flyer"></div>
+        <div class="body">
+          <h4 data-cms="events.2.name">Event Name 3</h4>
+          <p class="date" data-cms="events.2.date">Date · Time</p>
+          <p data-cms="events.2.caption">Theme · DJ · Dress code</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STAFF ============ -->
+  <section class="panel" id="panel-staff">
+    <p class="kicker">The Crew</p>
+    <h2 class="title">STAFF</h2>
+    <div class="staff-grid">
+      <div class="card staff">
+        <div class="pic"><span class="ph">Portrait</span><img data-cms-img="staff.0.portrait" alt="Staff portrait"></div>
+        <div class="body">
+          <h4 data-cms="staff.0.name">Name</h4>
+          <p class="role" data-cms="staff.0.role">Role</p>
+          <p class="about" data-cms="staff.0.about">“About me — a few lines about this person, written by themselves.”</p>
+        </div>
+      </div>
+      <div class="card staff">
+        <div class="pic"><span class="ph">Portrait</span><img data-cms-img="staff.1.portrait" alt="Staff portrait"></div>
+        <div class="body">
+          <h4 data-cms="staff.1.name">Name</h4>
+          <p class="role" data-cms="staff.1.role">Role</p>
+          <p class="about" data-cms="staff.1.about">“About me — a few lines about this person, written by themselves.”</p>
+        </div>
+      </div>
+      <div class="card staff">
+        <div class="pic"><span class="ph">Portrait</span><img data-cms-img="staff.2.portrait" alt="Staff portrait"></div>
+        <div class="body">
+          <h4 data-cms="staff.2.name">Name</h4>
+          <p class="role" data-cms="staff.2.role">Role</p>
+          <p class="about" data-cms="staff.2.about">“About me — a few lines about this person, written by themselves.”</p>
+        </div>
+      </div>
+    </div>
+  <!-- ============ MENU ============ -->
+  <section class="panel" id="panel-menu">
+    <p class="kicker">The Bar</p>
+    <h2 class="title">DRINK MENU</h2>
+    <div class="card" style="max-width:640px;margin:0 auto;text-align:center">
+      <img id="menuImg" src="assets/flyer-menu.png" alt="Voidwave 82 drink menu" data-cms-img="menuImage"
+           style="width:100%;border-radius:12px;border:1px solid var(--line);box-shadow:0 0 22px rgba(255,43,214,.35)">
+      <p class="desc" style="margin-top:14px" data-cms="menuNote">Signature cocktails, served until 23PM ST. Ask our bar staff for the off-menu special.</p>
+    </div>
+  </section>
+
+  <footer>
+    Bar is open until 23PM ST &nbsp;·&nbsp; Lalafells are prohibited from alcoholic beverages<br>
+    Instagram: <a id="igLink" href="https://instagram.com/HIKARIS_INSTAGRAM" target="_blank" rel="noopener" data-cms="instagram">@HIKARIS_INSTAGRAM</a>
+    &nbsp;·&nbsp; Not affiliated with Square Enix. FFXIV venues community project.
+  </footer>
+</div>
+
+<div id="toast">COPIED TO CLIPBOARD</div>
+
+<script>
+/* ---------- tabs ---------- */
+const tabs=document.querySelectorAll('.tab');
+tabs.forEach(t=>t.addEventListener('click',()=>{
+  tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+t.dataset.tab).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}));
+
+/* ---------- toast ---------- */
+let toastT;
+function toast(msg){
+  const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');
+  clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove('show'),2200);
+}
+
+/* ---------- lifestream command ---------- */
+const CMD='/li Light, Odin, Mist, Ward 7, Plot 42';
+document.getElementById('cmdBtn').addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText(CMD);}
+  catch(e){
+    const ta=document.createElement('textarea');ta.value=CMD;document.body.appendChild(ta);
+    ta.select();document.execCommand('copy');ta.remove();
+  }
+  toast('LIFESTREAM COMMAND COPIED');
+});
+
+/* ---------- CMS content loader (Decap CMS / content.json) ---------- */
+async function loadContent(){
+  try{
+    const r=await fetch('content/content.json',{cache:'no-store'});
+    if(!r.ok)return;
+    const d=await r.json();
+    const get=(o,p)=>p.split('.').reduce((a,k)=>(a==null?undefined:a[k]),o);
+    document.querySelectorAll('[data-cms]').forEach(el=>{
+      const v=get(d,el.dataset.cms);
+      if(v!==undefined&&v!==null&&v!=='')el.textContent=v;
+    });
+    document.querySelectorAll('[data-cms-img]').forEach(el=>{
+      const v=get(d,el.dataset.cmsImg);
+      if(v){el.src=v;el.style.display='block';}
+    });
+    if(d.discord)document.getElementById('discordBtn').href=d.discord;
+    if(d.instagram){const ig=document.getElementById('igLink');
+      if(ig){ig.textContent=d.instagram;
+        ig.href='https://instagram.com/'+d.instagram.replace('@','');}}
+  }catch(e){/* offline or missing file: keep defaults */}
+}
+loadContent();
+</script>
+</body>
+</html>

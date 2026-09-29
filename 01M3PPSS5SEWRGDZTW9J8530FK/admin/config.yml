@@ -1,0 +1,56 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+site_url: https://voidwave-82.com
+logo_url: /assets/logo.png
+locale: en
+
+collections:
+  - name: "content"
+    label: "Website Content"
+    files:
+      - name: "site"
+        label: "All Content"
+        file: "content/content.json"
+        description: "Edit all texts, events, staff and images of the VOIDWAVE 82 website."
+        fields:
+          - label: "Location"
+            name: "location"
+            widget: "object"
+            fields:
+              - {label: "World / Datacenter line", name: "world", widget: "string"}
+              - {label: "Address (District, Ward, Plot)", name: "address", widget: "string"}
+          - {label: "Discord Invite Link", name: "discord", widget: "string"}
+          - {label: "Instagram Handle", name: "instagram", widget: "string"}
+          - label: "Next Event (shown on Start page)"
+            name: "nextEvent"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Date & Line-up", name: "date", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Flyer Image", name: "flyer", widget: "image", required: false}
+          - label: "Upcoming Events (Events page)"
+            name: "events"
+            widget: "list"
+            max: 3
+            fields:
+              - {label: "Event Name", name: "name", widget: "string"}
+              - {label: "Date & Time", name: "date", widget: "string"}
+              - {label: "Caption (Theme / DJ / Dress code)", name: "caption", widget: "text"}
+              - {label: "Flyer Image", name: "flyer", widget: "image", required: false}
+          - {label: "Menu Image (Drink Menu page)", name: "menuImage", widget: "image", required: false}
+          - {label: "Menu Note (text under the menu)", name: "menuNote", widget: "text"}
+          - label: "Staff (Staff page)"
+            name: "staff"
+            widget: "list"
+            max: 3
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Role", name: "role", widget: "string"}
+              - {label: "About me", name: "about", widget: "text"}
+              - {label: "Portrait", name: "portrait", widget: "image", required: false}
