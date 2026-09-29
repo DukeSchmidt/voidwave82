@@ -181,8 +181,6 @@ h2.title{font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(1.6re
 footer{margin-top:70px;text-align:center;color:var(--muted);font-size:.85rem;letter-spacing:.12em}
 footer a{color:var(--pink-soft);text-decoration:none}
 
-[data-cms-img]{display:none}
-
 /* toast */
 #toast{position:fixed;left:50%;top:24px;transform:translate(-50%,-80px);z-index:90;
   font-family:'Orbitron',sans-serif;font-size:.75rem;letter-spacing:.2em;color:#0c0322;
@@ -378,7 +376,8 @@ async function loadContent(){
     });
     document.querySelectorAll('[data-cms-img]').forEach(el=>{
       const v=get(d,el.dataset.cmsImg);
-      if(v){el.src=v;el.style.display='block';}
+      if(v){el.src=v;}
+      else{el.style.display='none';}
     });
     if(d.discord)document.getElementById('discordBtn').href=d.discord;
     if(d.instagram){const ig=document.getElementById('igLink');
