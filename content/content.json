@@ -4,33 +4,14 @@
     "address": "Mist, Ward 7, Plot 42"
   },
   "discord": "https://discord.gg/kmRcxZDXn",
-  "instagram": "@HIKARIS_INSTAGRAM",
+  "instagram": "https://www.instagram.com/hikari.ffxiv/",
   "nextEvent": {
-    "title": "Grand Opening - Best of the 80s & 90s",
-    "date": "31.10.2026 · feat. DJ XY",
-    "description": "Celebrate our grand opening with the best tracks of the 80s and 90s. \nDress code: 80s, 90s, Neon. \nVibes: Only good ones!",
-    "flyer": "/assets/flyer-next.png"
+    "title": "Grand Opening - Embrace the Void",
+    "date": "07.11.2026 · feat. DJ Emi",
+    "description": "Celebrate our grand opening with \nCity Pop, Japanese Future Funk and Cyber Jazz\nDress code: 80s, 90s, Neon. \nVibes: Only good ones!",
+    "flyer": "/assets/uploads/kopie-von-grand-opening-best-of-the-80-s-and-90-s.png"
   },
-  "events": [
-    {
-      "name": "November Rain - Our Hard Rock Night against the cold!",
-      "date": "Date: 14.11.2026 · Time 8 p.m. GMT",
-      "caption": "Theme · DJ · Dress code",
-      "flyer": ""
-    },
-    {
-      "name": "Santas Eve - All we wan't for Christmas is you! ",
-      "date": "Date: 05.12.2026 · Time 8 p.m. GMT",
-      "caption": "Theme · DJ · Dress code",
-      "flyer": ""
-    },
-    {
-      "name": "Voidwave's Twixmas Party - Get ready for a new year of good vibes and music!",
-      "date": "Date: 26.12.2026  · Time 8 p.m. GMT",
-      "caption": "Theme · DJ · Dress code",
-      "flyer": ""
-    }
-  ],
+  "events": [],
   "menuImage": "/assets/flyer-menu.png",
   "menuNote": "Signature cocktails, served until 23PM ST. Ask our bar staff for the off-menu special.",
   "staff": [
