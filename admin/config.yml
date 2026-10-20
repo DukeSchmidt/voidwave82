@@ -18,7 +18,7 @@ collections:
         file: "content/content.json"
         description: "Edit all texts, events, staff and images of the VOIDWAVE 82 website."
         fields:
-  - {label: "Site Headline (kicker text on Start page)", name: "siteKicker", widget: "string", required: false}
+          - {label: "Site Headline (kicker text on Start page)", name: "siteKicker", widget: "string", required: false}
           - label: "Location"
             name: "location"
             widget: "object"
