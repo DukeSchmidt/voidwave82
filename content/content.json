@@ -1,19 +1,4 @@
 {
-  "location": {
-    "world": "LIGHT // ODIN:",
-    "address": "Mist, Ward 7, Plot 42"
-  },
-  "discord": "https://discord.gg/kmRcxZDXn",
-  "instagram": "https://www.instagram.com/hikari.ffxiv/",
-  "nextEvent": {
-    "title": "Grand Opening - Embrace the Void",
-    "date": "07.11.2026 · feat. DJ Emi",
-    "description": "Celebrate our grand opening with \nCity Pop, Japanese Future Funk and Cyber Jazz\nDress code: 80s, 90s, Neon. \nVibes: Only good ones!",
-    "flyer": "/assets/uploads/kopie-von-grand-opening-best-of-the-80-s-and-90-s.png"
-  },
-  "events": [],
-  "menuImage": "/assets/flyer-menu.png",
-  "menuNote": "Signature cocktails, served until 23PM ST. Ask our bar staff for the off-menu special.",
   "staff": [
     {
       "name": "Name",
@@ -33,5 +18,21 @@
       "about": "About me — a few lines about this person, written by themselves.",
       "portrait": ""
     }
-  ]
+  ],
+  "nextEvent": {
+    "title": "Grand Opening - Embrace the Void",
+    "date": "07.11.2026 · feat. DJ Emi",
+    "description": "Celebrate our grand opening with \nCity Pop, Japanese Future Funk and Cyber Jazz\nDress code: 80s, 90s, Neon. \nVibes: Only good ones!",
+    "flyer": "/assets/uploads/kopie-von-grand-opening-best-of-the-80-s-and-90-s.png"
+  },
+  "discord": "https://discord.gg/kmRcxZDXn",
+  "menuNote": "Signature cocktails, served until 23PM ST. Ask our bar staff for the off-menu special.",
+  "instagram": "https://www.instagram.com/hikari.ffxiv/",
+  "location": {
+    "world": "LIGHT // ODIN:",
+    "address": "Mist, Ward 7, Plot 42"
+  },
+  "events": [],
+  "siteKicker": "Celebrate our grand opening with  City Pop, Japanese Future Funk and Cyber Jazz!",
+  "menuImage": "/assets/flyer-menu.png"
 }
