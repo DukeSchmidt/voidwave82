@@ -4,7 +4,7 @@
     "address": "Mist, Ward 7, Plot 42"
   },
   "discord": "https://discord.gg/qjGDsWQy5P",
-  "instagram": "@HIKARIS_INSTAGRAM",
+  "instagram": "@HIKARI.FFXIV",
   "nextEvent": {
     "title": "Grand Opening — City Pop, Japanese Future Funk and Cyber Jazz",
     "date": "07.11.2026 feat DJ Emi",
@@ -35,16 +35,16 @@
   "menuNote": "Signature cocktails, served until 23PM ST.",
   "staff": [
     {
-      "name": "Name",
-      "role": "Role",
-      "about": "About me — a few lines about this person, written by themselves.",
-      "portrait": ""
+      "name": "Hikari",
+      "role": "Venue Manager & Photographer",
+      "about": "A Warrior of Light with a passion for photography, music, and the world of Eorzea. Behind VW-82, she brings its vibrant atmosphere to life, capturing the moments and memories that make every night unforgettable.",
+      "portrait": "/assets/uploads/hika.png"
     },
     {
-      "name": "Name",
-      "role": "Role",
-      "about": "About me — a few lines about this person, written by themselves.",
-      "portrait": ""
+      "name": "Emi",
+      "role": "From time to time DJ",
+      "about": "Hey, it's me. Emi. Sometimes I DJ here! :) ",
+      "portrait": "/assets/uploads/avatardiscord.png"
     },
     {
       "name": "Name",
