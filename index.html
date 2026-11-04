@@ -113,9 +113,10 @@ h2.title{font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(1.6re
   padding:24px;backdrop-filter:blur(8px);
   box-shadow:0 0 0 1px rgba(0,240,255,.12),0 10px 40px rgba(0,0,0,.45),inset 0 0 30px rgba(255,43,214,.05);
 }
-.grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+.grid2{display:grid;grid-template-columns:1fr;gap:22px}
 @media(max-width:840px){.grid2{grid-template-columns:1fr}}
 .stack{display:grid;gap:22px}
+@media(min-width:900px){.stack{grid-template-columns:1fr 1fr}}
 
 .location{font-size:1.25rem;font-weight:600;line-height:1.6}
 .location .smallcaps{color:var(--gold);letter-spacing:.06em}
@@ -136,15 +137,15 @@ h2.title{font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(1.6re
 .hint{color:var(--muted);font-size:.85rem;margin-top:10px}
 
 /* next event */
-.next{display:grid;grid-template-columns:220px 1fr;gap:22px;align-items:center}
+.next{display:grid;grid-template-columns:minmax(280px,400px) 1fr;gap:30px;align-items:start}
 @media(max-width:640px){.next{grid-template-columns:1fr}}
 .next img{width:100%;border-radius:12px;border:1px solid var(--line);
   box-shadow:0 0 22px rgba(255,43,214,.4)}
-.next h3{font-family:'Orbitron',sans-serif;font-size:1.35rem;letter-spacing:.08em;color:#fff;
+.next h3{font-family:'Orbitron',sans-serif;font-size:1.8rem;letter-spacing:.08em;color:#fff;
   text-shadow:0 0 12px rgba(0,240,255,.5)}
-.chip{display:inline-block;font-family:'Orbitron',sans-serif;font-size:.68rem;letter-spacing:.2em;
-  text-transform:uppercase;color:#12041f;background:var(--gold);border-radius:6px;
-  padding:4px 10px;margin-bottom:10px;font-weight:700}
+.chip{display:inline-block;font-family:'Orbitron',sans-serif;font-size:.95rem;letter-spacing:.22em;
+  text-transform:uppercase;color:#12041f;background:var(--gold);border-radius:8px;
+  padding:8px 18px;margin-bottom:16px;font-weight:700}
 .meta{color:var(--cyan-soft);font-weight:600;margin:8px 0}
 .desc{color:var(--muted);line-height:1.55}
 
@@ -167,7 +168,7 @@ h2.title{font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(1.6re
 .staff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media(max-width:840px){.staff-grid{grid-template-columns:1fr}}
 .staff{padding:0;overflow:hidden;text-align:center}
-.staff .pic{height:220px;background:linear-gradient(180deg,rgba(0,240,255,.10),rgba(255,43,214,.14)),#120826;
+.staff .pic{height:370px;background:linear-gradient(180deg,rgba(0,240,255,.10),rgba(255,43,214,.14)),#120826;
   position:relative;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line)}
 .staff .pic img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .staff .pic .ph{color:var(--muted);font-family:'Orbitron',sans-serif;font-size:.7rem;
@@ -180,6 +181,26 @@ h2.title{font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(1.6re
 
 footer{margin-top:70px;text-align:center;color:var(--muted);font-size:.85rem;letter-spacing:.12em}
 footer a{color:var(--pink-soft);text-decoration:none}
+
+@keyframes matrixIn{
+  0%{opacity:0;filter:brightness(2.5) saturate(2) hue-rotate(80deg);clip-path:inset(0 0 100% 0)}
+  40%{opacity:1;filter:brightness(1.6) hue-rotate(40deg);clip-path:inset(0 0 55% 0)}
+  70%{filter:brightness(1.1) hue-rotate(10deg);clip-path:inset(0 0 20% 0)}
+  100%{opacity:1;filter:none;clip-path:inset(0 0 0 0)}
+}
+@keyframes scanline{
+  0%{top:0;opacity:1}
+  85%{opacity:1}
+  100%{top:100%;opacity:0}
+}
+.panel.active .staff{position:relative;animation:matrixIn .6s ease-out both}
+.panel.active .staff::after{content:'';position:absolute;left:0;right:0;height:3px;top:0;
+  background:linear-gradient(90deg,transparent,#00f0ff,transparent);
+  box-shadow:0 0 18px 4px rgba(0,240,255,.8);animation:scanline .6s ease-out both}
+.panel.active .staff:nth-child(2){animation-delay:.15s}
+.panel.active .staff:nth-child(3){animation-delay:.3s}
+.panel.active .staff:nth-child(2)::after{animation-delay:.15s}
+.panel.active .staff:nth-child(3)::after{animation-delay:.3s}
 
 /* toast */
 #toast{position:fixed;left:50%;top:24px;transform:translate(-50%,-80px);z-index:90;
@@ -214,7 +235,7 @@ footer a{color:var(--pink-soft);text-decoration:none}
 
   <!-- ============ HOME ============ -->
   <section class="panel active" id="panel-home">
-    <p class="kicker" data-cms="siteKicker"></p>
+    <p class="kicker">Grand Opening — Best of the 80s &amp; 90s</p>
     <h2 class="title">WELCOME TO THE VOID</h2>
 
     <div class="grid2">
@@ -241,7 +262,7 @@ footer a{color:var(--pink-soft);text-decoration:none}
         <p class="kicker">Next Event</p>
         <div class="next" style="margin-top:14px">
           <img src="assets/flyer-next.png" alt="Next event flyer" data-cms-img="nextEvent.flyer">
-          <div>
+          <div style="padding-top:8px">
             <span class="chip">Upcoming</span>
             <h3 data-cms="nextEvent.title">Grand Opening — Best of the 80s &amp; 90s</h3>
             <p class="meta" data-cms="nextEvent.date">31.10.2026 · feat. DJ XY</p>
@@ -319,16 +340,13 @@ footer a{color:var(--pink-soft);text-decoration:none}
     <p class="kicker">The Bar</p>
     <h2 class="title">DRINK MENU</h2>
     <div class="card" style="max-width:640px;margin:0 auto;text-align:center">
-      <img id="menuImg" src="assets/flyer-menu.png" alt="Voidwave 82 drink menu"
-           style="width:100%;border-radius:12px;border:1px solid var(--line);box-shadow:0 0 22px rgba(255,43,214,.35)">
+      <img id="menuImg" src="assets/drink-karte.jpg" alt="Voidwave 82 drink menu" style="width:100%;border-radius:12px;border:1px solid var(--line);box-shadow:0 0 22px rgba(255,43,214,.35)">
       <p class="desc" style="margin-top:14px" data-cms="menuNote">Signature cocktails, served until 23PM ST. Ask our bar staff for the off-menu special.</p>
     </div>
   </section>
 
   <footer>
-    Bar is open until 23PM ST &nbsp;·&nbsp; Lalafells are prohibited from alcoholic beverages<br>
-    Instagram: <a id="igLink" href="https://instagram.com/HIKARIS_INSTAGRAM" target="_blank" rel="noopener" data-cms="instagram">@HIKARIS_INSTAGRAM</a>
-    &nbsp;·&nbsp; Not affiliated with Square Enix. FFXIV venues community project.
+    Not affiliated with Square Enix. FFXIV venues community project.
   </footer>
 </div>
 
