@@ -6,33 +6,33 @@
   "discord": "https://discord.gg/kmRcxZDXn",
   "instagram": "@HIKARIS_INSTAGRAM",
   "nextEvent": {
-    "title": "Grand Opening — Best of the 80s & 90s",
-    "date": "31.10.2026 · feat. DJ XY",
-    "description": "Celebrate our grand opening with the best tracks of the 80s and 90s. Dress code: neon. Vibes: maximum synthwave.",
-    "flyer": "/assets/flyer-next.png"
+    "title": "Grand Opening — City Pop, Japanese Future Funk and Cyber Jazz",
+    "date": "07.11.2026 feat DJ Emi",
+    "description": "Celebrate our grand opening with the best tracks of the Japanese Future Funk and City Pop Scene. Dress code: neon. Vibes: maximum synthwave.",
+    "flyer": "/assets/uploads/kopie-von-grand-opening-best-of-the-80-s-and-90-s.png"
   },
   "events": [
     {
-      "name": "Event Name 1",
+      "name": "Stay tuned for more!",
       "date": "Date · Time",
       "caption": "Theme · DJ · Dress code",
       "flyer": ""
     },
     {
-      "name": "Event Name 2",
+      "name": "Stay tuned for more!",
       "date": "Date · Time",
       "caption": "Theme · DJ · Dress code",
       "flyer": ""
     },
     {
-      "name": "Event Name 3",
+      "name": "Stay tuned for more!",
       "date": "Date · Time",
       "caption": "Theme · DJ · Dress code",
       "flyer": ""
     }
   ],
-  "menuImage": "/assets/flyer-menu.png",
-  "menuNote": "Signature cocktails, served until 23PM ST. Ask our bar staff for the off-menu special.",
+  "menuImage": "/assets/uploads/drink-karte-mit-5-plätzen.png",
+  "menuNote": "Signature cocktails, served until 23PM ST.",
   "staff": [
     {
       "name": "Name",
